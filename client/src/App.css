@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+#upload-file-button{
+  background-image: url("https://img.icons8.com/fluency/36/000000/plus-math.png");
+  background-repeat : no-repeat;
+  width : 36px;
+  height : 36px;
+}
+
+#delete-file-button{
+  background-image: url("https://img.icons8.com/small/16/000000/filled-trash.png");
+  background-repeat: no-repeat;
+  width : 16px;
+  height : 16px;
+}
+
+#create-link-button{
+  background-image: url("https://img.icons8.com/color/24/000000/link--v1.png");
+  background-repeat: no-repeat;
+  width : 24px;
+  height : 24px;
+}
+
+#convert-to-zip{
+  background-image: url("https://img.icons8.com/color-glass/24/000000/zip.png");
+  background-repeat: no-repeat;
+  width : 24px;
+  height : 24px
+}
+
+#copy-link-button{
+  background-image: url('https://img.icons8.com/external-outline-astudio/32/000000/external-copy-text-editor-outline-astudio.png');
+  background-repeat: no-repeat;
+  width: 32px;
+  height : 32px;
+}
+
+#share-email-button{
+  background-image: url("https://img.icons8.com/color/36/000000/gmail-new.png");
+  background-repeat: no-repeat;
+  width : 36px;
+  height: 36px;
+}
+
+#share-drive-button{
+  background-image: url("https://img.icons8.com/fluency/36/000000/google-drive--v1.png");
+  background-repeat: no-repeat;
+  width : 36px;
+  height : 36px;
+}
