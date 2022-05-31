@@ -5,14 +5,11 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import fileReducer from '../features/FileSlice';
 // importing as default, we get the reducer
 
-const serializableCheckFunction = getDefaultMiddleware({
-    serializableCheck : false
-})
+
 
 export default configureStore({
     reducer : {
         file : fileReducer,
-        middleware : [serializableCheckFunction]
     },
 })
 

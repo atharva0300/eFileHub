@@ -1,48 +1,96 @@
 // creating a reducer slice 
 import {createSlice} from '@reduxjs/toolkit';
+import axios from 'axios';
 
+
+// functions
+
+async function postRequest(formData){
+    console.log('inside the postRequest function')
+    try{
+        const res = await axios.post('/upload' , formData , {
+            headers : {
+                'Content-Type' : 'multipart/form-data'
+            }
+        })
+
+        console.log('File successfully uploaded')
+    }catch(err){
+        if(err.response.status === 500){
+            console.log('There was a problem with the server')
+        }else{
+            console.log('Error caught : ' , err)
+        }
+
+    }
+}
+
+
+// Slice
 export const FileSlice = createSlice({
     name : 'file',
     initialState : {
-        files : new Array(),
         reqUpload : false,
-        fileNames : new Array(),
-        fileSizes : [],
         count : 0,
-        fileArray : []
+        permissionToUpload : false
     },
     reducers : {
-        uploadFile : (state) => {
-            state.file = 1;
-            // the file goes here in place of 1
-            state.isUploaded = true; 
-        },
+        /*
+        uploadFile : (state)=> {
+            // uploading the files
+            console.log('uploading the file')
+            
+            const formData = new FormData();
+            formData.append(state.file);
 
+            postRequest(formData)
+
+        },
+        */
+
+        /*
         addFile : (state , action) => { 
         
-            const file = action.payload.selectedFile.selectedFile;
-            const fileName = action.payload.selectedFileName.selectedFileName;
+            const file = action.payload.selectedFile;
+            const fileName = action.payload.selectedFileName;
+            
             console.log(file);
             console.log(fileName)
             console.log(file.size)
-            state.fileNames.push(fileName)
-            state.count++
-            
-            console.log('Displaying array : ')
-            for(let i=0;i<state.count;i++){
-                console.log('File name : ' , state.fileNames[i])
-            }
 
-            const temp = {
-                name : fileName,
-                size : file.size
-            }
-            state.fileArray.push(temp);
+            state.file = file
+            state.fileName=  fileName
+            state.fileSize = file.size
+            
+
 
         },
+        */
 
+        /*
         removeFile : (state , action) => {
             // removing file
+            const tempArray = state.fileArray.filter((element) => element.name!==action.payload.fileName )
+            state.fileArray = tempArray;
+            state.count = state.fileArray.length
+            console.log('count : ' , state.count)
+
+            console.log('filtered array : ')
+            state.fileArray.forEach(element => {
+                console.log('file : ' , element.file);
+                console.log('file name : ' , element.name);
+                console.log('file size : ' , element.size);
+            });
+
+        },
+        */
+
+        incrementCount : (state) => {
+            state.count++;
+        },
+
+        decrementCount : (state ,action) => {
+            state.count = action.payload.length
         },
 
         reqFileUpload : (state) => {
@@ -60,13 +108,22 @@ export const FileSlice = createSlice({
 
         saveToDrive : (state) => {
             console.log('Request to save to drive')
-        }
+        },
 
+        createLink : (state) => {
+            // creating the link here
+            if(state.count===1){
+                console.log('You can create the file link')
+                state.permissionToUpload = true
+            }else if(state.count===0){
+                console.log('There are no files')
+            }else{
+                console.log('More than 1 file')
+            }
+
+        },
     },
-    middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+
 })
 
 export const FileActions = FileSlice.actions
