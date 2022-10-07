@@ -33,3 +33,5 @@ even save it on drive. Or you can upload any file and share that file via gmail,
 6. New algorithms for compression multimedia files like - videos, images, audio files.
 7. Feature to connect to Google drive and directly upload on the drive
 
+## Developer features 
+1. Implmenting threading 
