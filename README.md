@@ -24,3 +24,12 @@ even save it on drive. Or you can upload any file and share that file via gmail,
   <li>5. Archiver library</li>
 </ul>
 
+## New features to add to this project !
+1. Replacing the Adm-Zip library with my own algorithms. The user must select an option from multiple algorithms for file zipping ( Will be implementing 5 algorithms for this ). 
+2. Stasticising the degree of compression, the final compressed size, the compression percentage. Compare these factors for all the algorithms.
+3. Feature to download the zipped file
+4. Feature to create a sharable link ( one-time use link ) from where the zipped file can be downoaded
+5. Supprting extraction of multiple files ( currently supports compression of just a single file )
+6. New algorithms for compression multimedia files like - videos, images, audio files.
+7. Feature to connect to Google drive and directly upload on the drive
+
